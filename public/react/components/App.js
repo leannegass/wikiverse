@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { PagesList } from './PagesList';
+import { Page } from './Page';
+import {BrowserRouter,Routes, Route, useNavigate, Switch, useParams,Link} from "react-router-dom";
 
 // import and prepend the api url to any fetch calls
 import apiURL from '../api';
@@ -23,10 +25,23 @@ export const App = () => {
 	}, []);
 
 	return (
-		<main>	
-      <h1>WikiVerse</h1>
+		<>
+		    <main>	
+            <h1>WikiVerse</h1>
 			<h2>An interesting 📚</h2>
-			<PagesList pages={pages} />
-		</main>
+			<nav>
+				<ul>
+					<li> 
+						<Link to="/"> WIKILIST </Link>
+					</li>
+				</ul>
+			</nav>
+			<Routes>
+				<Route path="/" element={<PagesList pages={pages} />} />
+				<Route path="/:slug" element={<Page pages={pages} />} />
+			
+			</Routes>
+		    </main>
+		</>
 	)
 }
