@@ -11,7 +11,7 @@ decribe("test for App.js page", () => {
 
     it("renders pageList", () => {
         const jjjjj = (<App />);
-        const welcome = <h1>LIST OF ARTICLE</h1>;
+        const welcome = <h1>WIKILIST</h1>;
         expect(jjjj.contains(welcome)).toEqual(true);
 
     })

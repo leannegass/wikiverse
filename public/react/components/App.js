@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { PagesList } from './PagesList';
 import { Page } from './Page';
 import {BrowserRouter,Routes, Route, useNavigate, Switch, useParams,Link} from "react-router-dom";
+import { NewPage} from './NewPage';
 
 // import and prepend the api url to any fetch calls
 import apiURL from '../api';
@@ -23,6 +24,7 @@ export const App = () => {
 	useEffect(() => {
 		fetchPages();
 	}, []);
+	
 
 	return (
 		<>
@@ -38,7 +40,8 @@ export const App = () => {
 			</nav>
 			<Routes>
 				<Route path="/" element={<PagesList pages={pages} />} />
-				<Route path="/:slug" element={<Page pages={pages} />} />
+				<Route path="/:article" element={<Page />} />
+				<Route path="/new" element={<NewPage />} />
 			
 			</Routes>
 		    </main>
